@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://kit.fontawesome.com/f3d3bcd31b.js" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="upper">
+          <div id="title-box">
+            <h1 id="title-text" style="font-family: sans-serif">
+              A Simple To-do List
+            </h1>
+          </div>
+          <div id="form-container">
+            <form action="/add-task" method="post">
+              <div id="task-container">
+                <span class="container-heading"> &nbsp; DESCRIPTION </span>
+                <textarea
+                  name="task"
+                  placeholder="&nbsp;What do you want to do?"
+                  required
+                ></textarea>
+              </div>
+              <div id="outer">
+                <div id="select-container">
+                  <span class="container-heading"> &nbsp; CATEGORY </span>
+                  <select name="category" id="drop-down" required>
+                    <option value="">Choose a category</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="School">School</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div id="date-container">
+                  <span class="container-heading"> &nbsp; DUE DATE </span>
+                  <input id="date-input" type="date" name="date" />
+                </div>
+  
+                <div id="btn-container">
+                  <button class="add-btn" type="submit">
+                    <i class="fas fa-plus"></i>
+                    <span id="button-text"> &nbsp; Add Task</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="tasks list">
+          <% for(let i of tasks){ %>
+            <ul>
+              <li>
+                <span><%=i.task%></span>
+                <span><%=i.date%></span>
+                <a href="/delete/?id=<%=i._id%>">delete</a>
+              </li>
+            </ul>
+          <%}%>
+          
+        </div>
+        
+</body>
+</html>
