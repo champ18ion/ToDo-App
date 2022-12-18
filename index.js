@@ -47,25 +47,30 @@ app.post('/add-task',(req,res)=>{
     )
 });
 
-app.get('/delete/',(req,res)=>{
-    console.log(req.query)
-    let id = req.query.id;
+//Deleting a task
+app.get('/delete', function(req, res) {
+    console.log(req.query);
+    var id = req.query;
+    console.log(Object.keys(id));
+    //Iterating over all tasks
+    var count = Object.keys(id).length;
+    for (let i = 0; i < count; i++) {
+        //Deleting the task by using inbuilt methods
+        Tasks.findByIdAndDelete(Object.keys(id)[i], function(err) {
+            if (err) {
+                console.log("Error in deleting the task from DB");
+            }
+        });
+        console.log("Task-Deleted");
+    }
+    return res.redirect('back');
+});
 
-    Tasks.findByIdAndDelete(id,(err)=>{
-        if(err){
-            console.log(err);
-        }
-        res.redirect("back")
-    })
-
-    
-})
 
 
 
 
 
 
-
-
+// starting the express server
 app.listen(5000,()=>{console.log('server up and running')});

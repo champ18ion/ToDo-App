@@ -1,20 +1,4 @@
-//handling emojis with respect to different task categories
-var category_boxes = document.querySelectorAll(".list-category");
-var category_box_texts = document.querySelectorAll('#category-box-text');
 
-for (let i = 0; i < category_boxes.length; i++) {
-    if (category_box_texts[i].innerText == 'Personal') {
-        category_box_texts[i].innerText += '  👼🏻';
-    } else if (category_box_texts[i].innerText == 'Work') {
-        category_box_texts[i].innerText += '  💻';
-    } else if (category_box_texts[i].innerText == 'School') {
-        category_box_texts[i].innerText += '  📓';
-    } else if (category_box_texts[i].innerText == 'Cleaning') {
-        category_box_texts[i].innerText += '  🧹';
-    } else if (category_box_texts[i].innerText == 'Other') {
-        category_box_texts[i].innerText += '   🤷‍♂️';
-    }
-}
 
 // handling the tasks which have no deadlines
 var date_values = document.querySelectorAll("#task-date-value");
@@ -47,15 +31,3 @@ title_box.addEventListener('mouseout', function() {
     title_box.style.boxShadow = 'none'
 });
 
-//handling hover on li 
-var listItems = document.querySelectorAll('li');
-for (let i = 0; i < listItems.length; i++) {
-    listItems[i].addEventListener('mouseover', function() {
-        listItems[i].style.backgroundColor = 'whitesmoke';
-        listItems[i].style.boxShadow = '0px 0px 5px 3px #f08a5d';
-    });
-    listItems[i].addEventListener('mouseout', function() {
-        listItems[i].style.backgroundColor = '#e8e4e1';
-        listItems[i].style.boxShadow = 'none';
-    });
-}
