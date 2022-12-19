@@ -17,6 +17,7 @@ app.set('view engine','ejs')
 app.use(express.static('assets'))
 
 
+
 // home page
 app.get('/',(req,res)=>{
     Tasks.find({},(err,tasks)=>{
@@ -42,6 +43,7 @@ app.post('/add-task',(req,res)=>{
                 console.log(err)
             }
             res.redirect('back')
+            
         }
         
     )

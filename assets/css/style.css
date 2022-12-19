@@ -268,7 +268,7 @@ textarea:hover {
 
 
 #list {
-   overflow-y:hidden;
+   overflow-y:auto;
    overflow-x: hidden;
    height:40vh;
 }
