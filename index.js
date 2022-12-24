@@ -16,8 +16,6 @@ app.set('view engine','ejs')
 // static files
 app.use(express.static('assets'))
 
-
-
 // home page
 app.get('/',(req,res)=>{
     Tasks.find({},(err,tasks)=>{
@@ -31,6 +29,7 @@ app.get('/',(req,res)=>{
     
 })
 
+// adding TAsk
 app.post('/add-task',(req,res)=>{
     console.log(req.body);
     Tasks.create(
@@ -68,11 +67,5 @@ app.get('/delete', function(req, res) {
     return res.redirect('back');
 });
 
-
-
-
-
-
-
-// starting the express server
+// starting the express server port 5000
 app.listen(5000,()=>{console.log('server up and running')});

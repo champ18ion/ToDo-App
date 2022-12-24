@@ -341,7 +341,7 @@ li {
 #checkbox {
     display: inline-block;
 }
-
+/* strike-through on selecting task */
 input[type="checkbox"]:checked + label>span{
     text-decoration: line-through;
 }
